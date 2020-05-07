@@ -1,4 +1,7 @@
 {
-    "hello": "Hola Mundo",
-    "bye": "Adiós"
+  "emailPlaceHolder": "john@email.com",
+  "password": "contraseña",
+  "forgotPassword": "¿Se te olvidó tu contraseña?",
+  "signIn": "Iniciar sesión",
+  "signUp": "Regístrate"
 }

@@ -10,3 +10,5 @@
     -> new terminal and run "npx react-native run-android"
 
 
+# if fonts are not working then only then use this command
+    -> npx react-native link
