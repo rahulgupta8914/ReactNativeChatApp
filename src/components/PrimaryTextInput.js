@@ -8,7 +8,6 @@ import {
   forthColorAccent,
 } from '../constants/Colors';
 import {
-  spacingFromMainScreen,
   inputTextOuterPadding,
   inputTextBorderRadius,
   primaryFontSize,
@@ -21,6 +20,7 @@ function PrimaryTextInput(props) {
   return (
     <View style={[styles.textWrapper]}>
       <TextInput
+        secureTextEntry={props.secureTextEntry}
         style={styles.inputBox}
         autoCapitalize={props.autoCapitalize}
         autoCompleteType={props.autoCompleteType}
@@ -63,6 +63,7 @@ PrimaryTextInput.defaultProps = {
   autoCapitalize: 'none',
   textContentType: 'name',
   autoCompleteType: 'name',
+  secureTextEntry: false
 };
 
 PrimaryTextInput.propTypes = {
@@ -114,6 +115,7 @@ PrimaryTextInput.propTypes = {
     'oneTimeCode',
   ]),
   placeholder: PropTypes.string,
+  secureTextEntry: PropTypes.bool,
   value: PropTypes.string,
   onChangeText: PropTypes.func,
 };

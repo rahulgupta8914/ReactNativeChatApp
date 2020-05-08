@@ -8,3 +8,6 @@ export const primaryHeight = 59;
 // font size 
 export const primaryFontSize = 18;
 export const secondaryFontSize = 13;
+
+// TouchableOpacity opacity value on click
+export const activeOpacity = .6

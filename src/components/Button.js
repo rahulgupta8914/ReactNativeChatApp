@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PrimaryTextView from './PrimaryTextView';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {inputTextBorderRadius, primaryHeight} from '../constants/Geometry';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  inputTextBorderRadius,
+  primaryHeight,
+  activeOpacity,
+} from '../constants/Geometry';
 import {
   colorAccent,
   secondaryColorAccent,
@@ -11,10 +15,11 @@ import {
 } from '../constants/Colors';
 import {centered} from '../styles/style';
 
-function Button({children, type, color, style}) {
+function Button({children, type, color, style, onPress}) {
   return (
     <TouchableOpacity
-      activeOpacity={0.6}
+      onPress={onPress}
+      activeOpacity={activeOpacity}
       style={{
         ...styles.btn,
         ...style,
@@ -24,7 +29,7 @@ function Button({children, type, color, style}) {
           height: 4,
         },
         shadowColor: forthColorAccent,
-        shadowOpacity: .48,
+        shadowOpacity: 0.48,
         shadowRadius: 5,
         backgroundColor: type === 'primary' ? colorAccent : windowBackground,
         borderColor: type === 'primary' ? 0 : colorAccent,
@@ -57,6 +62,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   color: PropTypes.oneOf([colorAccent, secondaryColorAccent]),
   style: PropTypes.object,
+  onPress: PropTypes.func,
 };
 
 export default Button;

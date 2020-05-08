@@ -1,7 +1,8 @@
 {
-    "emailPlaceHolder": "john@email.com",
-    "password": "password",
-    "forgotPassword": "Forgot password?",
-    "signIn": "Sign In",
-    "signUp": "Sign Up"
+  "emailPlaceHolder": "john@email.com",
+  "password": "password",
+  "forgotPassword": "Forgot password?",
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "confirmPassword": "Confirm Password"
 }

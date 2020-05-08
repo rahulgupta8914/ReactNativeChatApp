@@ -3,5 +3,6 @@
   "password": "contraseña",
   "forgotPassword": "¿Se te olvidó tu contraseña?",
   "signIn": "Iniciar sesión",
-  "signUp": "Regístrate"
+  "signUp": "Regístrate",
+  "confirmPassword": "Confirmar contraseña"
 }

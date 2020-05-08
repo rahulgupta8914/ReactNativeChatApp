@@ -1,16 +1,27 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {bottomed} from '../../styles/style';
+import {View, useWindowDimensions} from 'react-native';
+import {centered} from '../../styles/style';
 import PrimaryTextInput from '../../components/PrimaryTextInput';
 import {useTranslation} from 'react-i18next';
 import PrimaryTextView from '../../components/PrimaryTextView';
-import {spacingFromMainScreen} from '../../constants/Geometry';
 import Button from '../../components/Button';
+import {socialIcons} from '../../constants/Images';
+import SocialIcon from '../../components/SocialIcon';
+import MainLogo from '../../components/MainLogo';
+import styles from './styles';
 
 function SignInScreen(props) {
   const {t} = useTranslation();
+
+  // navigate
+  const navigate = page => {
+    props.navigation.navigate(page);
+  };
   return (
     <View style={styles.container}>
+      <View style={{...centered, justifyContent: 'flex-start', marginTop: 35}}>
+        <MainLogo width={50} />
+      </View>
       <View style={styles.formControl}>
         <PrimaryTextInput
           placeholder={`${t('emailPlaceHolder')}`}
@@ -23,6 +34,7 @@ function SignInScreen(props) {
         <PrimaryTextInput
           placeholder={`${t('password')}`}
           textContentType="password"
+          secureTextEntry={true}
           autoCompleteType="password"
           autoCapitalize="none"
         />
@@ -32,34 +44,26 @@ function SignInScreen(props) {
           {t('forgotPassword')}
         </PrimaryTextView>
       </View>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          marginTop: 20,
-          marginBottom: 15,
-        }}>
-        <Button style={{marginRight: 20}} type="primary-outline">
-          Sign up
+      <View style={styles.buttons}>
+        <Button
+          onPress={() => {
+            navigate('Sign Up');
+          }}
+          style={{marginRight: 20}}
+          type="primary-outline">
+          {t('signUp')}
         </Button>
         <Button style={{marginLeft: 20}} type="primary">
-          Sign in
+          {t('signIn')}
         </Button>
+      </View>
+      <View style={styles.socialButtons}>
+        <SocialIcon source={socialIcons.google} />
+        <SocialIcon source={socialIcons.linkedin} />
+        <SocialIcon source={socialIcons.facebook} />
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    ...bottomed,
-    paddingLeft: spacingFromMainScreen,
-    paddingRight: spacingFromMainScreen,
-  },
-  formControl: {
-    marginBottom: spacingFromMainScreen,
-  },
-});
 
 export default SignInScreen;
