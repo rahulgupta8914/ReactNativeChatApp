@@ -40,6 +40,7 @@ function useStyles() {
         color: colorAccent,
         fontFamily: RobotoRegular,
         height: verticalScale(primaryHeight),
+        fontWeight: "bold",
         borderColor: secondaryColorAccent,
         borderWidth: primaryBorderWidth,
         backgroundColor: secondaryColorAccent,
