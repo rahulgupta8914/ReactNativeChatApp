@@ -8,10 +8,11 @@ import Button from '../../components/Button';
 import {socialIcons} from '../../constants/Images';
 import SocialIcon from '../../components/SocialIcon';
 import MainLogo from '../../components/MainLogo';
-import styles from './styles';
+import useStyles from './useStyles';
 
 function SignUpScreen(props) {
   const {t} = useTranslation();
+  const {styles} = useStyles();
   // navigate
   const navigate = page => {
     props.navigation.navigate(page);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, useWindowDimensions} from 'react-native';
+import {View} from 'react-native';
 import {centered} from '../../styles/style';
 import PrimaryTextInput from '../../components/PrimaryTextInput';
 import {useTranslation} from 'react-i18next';
@@ -8,11 +8,14 @@ import Button from '../../components/Button';
 import {socialIcons} from '../../constants/Images';
 import SocialIcon from '../../components/SocialIcon';
 import MainLogo from '../../components/MainLogo';
-import styles from './styles';
+import { spacingFromMainScreen } from '../../constants/Geometry';
+import useStyles from './useStyles';
+import useScale from '../../hooks/useScale';
 
 function SignInScreen(props) {
   const {t} = useTranslation();
-
+  const {styles} = useStyles();
+  const {horizentalScale} = useScale();
   // navigate
   const navigate = page => {
     props.navigation.navigate(page);
@@ -49,11 +52,11 @@ function SignInScreen(props) {
           onPress={() => {
             navigate('Sign Up');
           }}
-          style={{marginRight: 20}}
+          style={{marginRight: horizentalScale(20)}}
           type="primary-outline">
           {t('signUp')}
         </Button>
-        <Button style={{marginLeft: 20}} type="primary">
+        <Button style={{marginLeft: horizentalScale(20)}} type="primary">
           {t('signIn')}
         </Button>
       </View>

@@ -14,14 +14,18 @@ import {
   forthColorAccent,
 } from '../constants/Colors';
 import {centered} from '../styles/style';
+import useScale from '../hooks/useScale';
 
 function Button({children, type, color, style, onPress}) {
+  const {verticalScale} = useScale();
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={activeOpacity}
       style={{
-        ...styles.btn,
+        borderRadius: inputTextBorderRadius,
+        height: verticalScale(primaryHeight),
+        ...centered,
         ...style,
         elevation: 5,
         shadowOffset: {
@@ -43,14 +47,6 @@ function Button({children, type, color, style, onPress}) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  btn: {
-    borderRadius: inputTextBorderRadius,
-    height: primaryHeight,
-    ...centered,
-  },
-});
 
 Button.defaultProps = {
   type: 'primary',
