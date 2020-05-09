@@ -27,6 +27,8 @@ function Button({children, type, color, style, onPress}) {
         height: verticalScale(primaryHeight),
         ...centered,
         ...style,
+        flex: 0,
+        width: '45%',
         elevation: 5,
         shadowOffset: {
           width: 1,

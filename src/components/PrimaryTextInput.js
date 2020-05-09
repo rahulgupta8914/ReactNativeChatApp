@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  ViewPropTypes,
-} from 'react-native';
+import {View, TextInput, StyleSheet, ViewPropTypes} from 'react-native';
 import {
   colorAccent,
   secondaryColorAccent,
@@ -49,26 +44,24 @@ function useStyles() {
         borderWidth: primaryBorderWidth,
         backgroundColor: secondaryColorAccent,
       },
-    })
+    }),
   };
 }
 
 function PrimaryTextInput(props) {
   const {styles} = useStyles();
   return (
-    <View style={[styles.textWrapper]}>
-      <TextInput
-        secureTextEntry={props.secureTextEntry}
-        style={styles.inputBox}
-        autoCapitalize={props.autoCapitalize}
-        autoCompleteType={props.autoCompleteType}
-        textContentType={props.textContentType}
-        placeholder={props.placeholder}
-        value={props.value}
-        placeholderTextColor={thirdColorAccent}
-        onChangeText={props.onChangeText}
-      />
-    </View>
+    <TextInput
+      secureTextEntry={props.secureTextEntry}
+      style={styles.inputBox}
+      autoCapitalize={props.autoCapitalize}
+      autoCompleteType={props.autoCompleteType}
+      textContentType={props.textContentType}
+      placeholder={props.placeholder}
+      value={props.value}
+      placeholderTextColor={thirdColorAccent}
+      onChangeText={props.onChangeText}
+    />
   );
 }
 

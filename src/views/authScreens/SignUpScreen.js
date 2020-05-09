@@ -19,18 +19,17 @@ function SignUpScreen(props) {
   };
   return (
     <View style={styles.container}>
-      <View style={{...centered, justifyContent: 'flex-start', marginTop: 35}}>
-        <MainLogo width={50} />
+      <View style={{...centered, justifyContent: 'flex-start'}}>
+        <MainLogo />
       </View>
-      <View style={styles.formControl}>
+
+      <View style={{...styles.formControl, flex: 1.5}}>
         <PrimaryTextInput
           placeholder={`${t('emailPlaceHolder')}`}
           autoCapitalize="none"
           textContentType="emailAddress"
           autoCompleteType="email"
         />
-      </View>
-      <View style={styles.formControl}>
         <PrimaryTextInput
           placeholder={`${t('password')}`}
           textContentType="password"
@@ -38,8 +37,6 @@ function SignUpScreen(props) {
           autoCompleteType="password"
           autoCapitalize="none"
         />
-      </View>
-      <View style={styles.formControl}>
         <PrimaryTextInput
           placeholder={`${t('confirmPassword')}`}
           textContentType="password"
@@ -47,29 +44,24 @@ function SignUpScreen(props) {
           autoCompleteType="password"
           autoCapitalize="none"
         />
-      </View>
-      <View style={styles.formControl}>
         <PrimaryTextView textTransform="uppercase">
           {t('forgotPassword')}
         </PrimaryTextView>
-      </View>
-      <View style={styles.buttons}>
-        <Button
-          onPress={() => {
-            navigate('Sign In');
-          }}
-          style={{marginRight: 20}}
-          type="primary-outline">
-          {t('signIn')}
-        </Button>
-        <Button style={{marginLeft: 20}} type="primary">
-          {t('signUp')}
-        </Button>
-      </View>
-      <View style={styles.socialButtons}>
-        <SocialIcon source={socialIcons.google} />
-        <SocialIcon source={socialIcons.linkedin} />
-        <SocialIcon source={socialIcons.facebook} />
+        <View style={styles.buttons}>
+          <Button
+            onPress={() => {
+              navigate('Sign In');
+            }}
+            type="primary-outline">
+            {t('signIn')}
+          </Button>
+          <Button type="primary">{t('signUp')}</Button>
+        </View>
+        <View style={styles.socialButtons}>
+          <SocialIcon source={socialIcons.google} />
+          <SocialIcon source={socialIcons.linkedin} />
+          <SocialIcon source={socialIcons.facebook} />
+        </View>
       </View>
     </View>
   );

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {TouchableOpacity, Image} from 'react-native';
 import {activeOpacity} from '../constants/Geometry';
 import useScale from '../hooks/useScale';
+import {forthColorAccent} from '../constants/Colors';
 
 function SocialIcon({source, onPress}) {
   const {verticalScale} = useScale();
@@ -16,7 +17,13 @@ function SocialIcon({source, onPress}) {
         paddingRight: 10,
       }}
       activeOpacity={activeOpacity}>
-      <Image source={source} style={{resizeMode: 'contain',width:verticalScale(45)}} />
+      <Image
+        source={source}
+        style={{
+          resizeMode: 'contain',
+          width: verticalScale(45),
+        }}
+      />
     </TouchableOpacity>
   );
 }

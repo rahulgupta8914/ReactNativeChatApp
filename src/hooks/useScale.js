@@ -10,8 +10,16 @@ export default function useScale() {
    * @param  {[Number]} size [description]
    * @return {[Number]}      [description]
    */
-  const verticalScale = size => (windowHeight / GUIDE_LINE_HEIGHT) * size;
-  
+  const verticalScale = size => {
+    if (windowHeight < 600) {
+      return (600 / GUIDE_LINE_HEIGHT) * size;
+    } else if (windowHeight < 700) {
+      return (700 / GUIDE_LINE_HEIGHT) * size;
+    } else {
+      return (windowHeight / GUIDE_LINE_HEIGHT) * size;
+    }
+  };
+
   /**
    * [use it for scaling width]
    * @param  {[Number]} size [description]
