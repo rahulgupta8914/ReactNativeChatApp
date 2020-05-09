@@ -28,7 +28,7 @@ function Navigation() {
       <StatusBar
         animated
         barStyle="dark-content"
-        backgroundColor={colorPrimaryDark}
+        backgroundColor={windowBackground}
       />
       <SafeAreaView style={{flex: 1, backgroundColor: windowBackground}}>
         <Stack.Navigator
