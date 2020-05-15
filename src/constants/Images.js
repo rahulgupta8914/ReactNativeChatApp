@@ -4,3 +4,5 @@ export const socialIcons = {
   facebook: require('../assets/images/facebook.png'),
   linkedin: require('../assets/images/linkedin.png'),
 };
+export const welcomeImage = require('../assets/images/welcome1.png');
+export const backArrow = require('../assets/images/Arrow.png'); 

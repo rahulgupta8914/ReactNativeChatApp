@@ -2,47 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View, TextInput, StyleSheet, ViewPropTypes} from 'react-native';
 import {
-  colorAccent,
   secondaryColorAccent,
   thirdColorAccent,
+  secondTextColorPrimary,
   forthColorAccent,
 } from '../constants/Colors';
 import {
-  inputTextOuterPadding,
   inputTextBorderRadius,
   inputTextSideSpacing,
   primaryBorderWidth,
   primaryHeight,
+  primaryFontSize,
 } from '../constants/Geometry';
 import {RobotoRegular} from '../constants/Fonts';
 import useScale from '../hooks/useScale';
 
 // style hook
 function useStyles() {
-  const {verticalScale, scaleFont} = useScale();
+  const {verticalScale} = useScale();
   return {
     styles: StyleSheet.create({
       textWrapper: {
-        //   this wrapper is used for ios get shadow effect
-        // here i'm tring to reach same effect in both devices
-        paddingBottom: inputTextOuterPadding,
-        paddingRight: inputTextOuterPadding,
-        borderRadius: inputTextBorderRadius,
-        backgroundColor: forthColorAccent,
-        shadowOpacity: 0.48,
-        elevation: 6, // it only works in android
+        marginBottom: verticalScale(20),
+        width: '95%',
       },
       inputBox: {
         borderRadius: inputTextBorderRadius,
-        paddingRight: inputTextSideSpacing,
-        paddingLeft: inputTextSideSpacing,
-        fontSize: scaleFont(15),
-        color: colorAccent,
+        borderColor: forthColorAccent,
+        borderWidth: verticalScale(primaryBorderWidth),
+        fontSize: verticalScale(primaryFontSize),
+        color: secondTextColorPrimary,
         fontFamily: RobotoRegular,
         height: verticalScale(primaryHeight),
-        fontWeight: "bold",
-        borderColor: secondaryColorAccent,
-        borderWidth: primaryBorderWidth,
+        fontWeight: 'bold',
+        paddingLeft: verticalScale(inputTextSideSpacing),
+        paddingRight: verticalScale(inputTextSideSpacing),
         backgroundColor: secondaryColorAccent,
       },
     }),
@@ -52,17 +46,20 @@ function useStyles() {
 function PrimaryTextInput(props) {
   const {styles} = useStyles();
   return (
-    <TextInput
-      secureTextEntry={props.secureTextEntry}
-      style={styles.inputBox}
-      autoCapitalize={props.autoCapitalize}
-      autoCompleteType={props.autoCompleteType}
-      textContentType={props.textContentType}
-      placeholder={props.placeholder}
-      value={props.value}
-      placeholderTextColor={thirdColorAccent}
-      onChangeText={props.onChangeText}
-    />
+    <View
+      style={{...props.style, ...styles.textWrapper}}>
+      <TextInput
+        secureTextEntry={props.secureTextEntry}
+        style={{...styles.inputBox, ...props.style}}
+        autoCapitalize={props.autoCapitalize}
+        autoCompleteType={props.autoCompleteType}
+        textContentType={props.textContentType}
+        placeholder={props.placeholder}
+        value={props.value}
+        placeholderTextColor={thirdColorAccent}
+        onChangeText={props.onChangeText}
+      />
+    </View>
   );
 }
 
@@ -74,7 +71,7 @@ PrimaryTextInput.defaultProps = {
 };
 
 PrimaryTextInput.propTypes = {
-  style: PropTypes.objectOf(ViewPropTypes.style),
+  style: ViewPropTypes.style,
   autoCapitalize: PropTypes.oneOf(['none', 'sentences', 'words', 'characters']),
   autoCompleteType: PropTypes.oneOf([
     'cc-csc',

@@ -1,24 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Image, useWindowDimensions } from 'react-native'
-import { logo } from '../constants/Images';
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Image} from 'react-native';
+import {logo} from '../constants/Images';
 
 function MainLogo(props) {
-    const windowWidth = useWindowDimensions().width;
-    return (
-        <Image resizeMode='contain' style={{
-            resizeMode:"contain",
-            width: windowWidth * (props.width/100),
-        }} source={logo} />
-    )
+  return (
+    <Image
+      resizeMode="contain"
+      style={{
+        resizeMode: 'contain',
+        width: props.width,
+      }}
+      source={logo}
+    />
+  );
 }
 
 MainLogo.propTypes = {
-    width: PropTypes.number
-}
+  width: PropTypes.number,
+};
 MainLogo.defaultProps = {
-    width: 50,
-}
+  width: 100,
+};
 
-export default MainLogo
-
+export default MainLogo;

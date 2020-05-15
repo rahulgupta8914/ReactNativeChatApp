@@ -9,6 +9,7 @@ import SignUpScreen from '../views/authScreens/SignUpScreen';
 import WelcomeScreen from '../views/WelcomeScreen';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {windowBackground, colorPrimaryDark} from '../constants/Colors';
+import WelcomeScreen2 from '../views/WelcomeScreen2';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,7 @@ function Navigation() {
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           }}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="Welcome2" component={WelcomeScreen2} />
           <Stack.Screen name="Sign In" component={SignInScreen} />
           <Stack.Screen name="Sign Up" component={SignUpScreen} />
         </Stack.Navigator>

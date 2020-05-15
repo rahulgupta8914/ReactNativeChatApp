@@ -4,5 +4,6 @@
   "forgotPassword": "Forgot password?",
   "signIn": "Sign In",
   "signUp": "Sign Up",
-  "confirmPassword": "Confirm Password"
+  "confirmPassword": "Confirm Password",
+  "cantLogin":"Can't login?"
 }
