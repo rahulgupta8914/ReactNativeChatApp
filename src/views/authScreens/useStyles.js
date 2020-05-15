@@ -12,7 +12,7 @@ export default function useStyles() {
         alignItems:"center"
       },
       buttons: {
-        marginTop: verticalScale(22),
+        marginTop: verticalScale(15),
       },
       forgotPassStyle:{
         marginBottom: verticalScale(15)

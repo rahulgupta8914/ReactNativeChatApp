@@ -13,8 +13,8 @@ function SocialIcon({source, onPress}) {
       style={{
         paddingLeft: 10,
         paddingRight: 10,
-        paddingTop: verticalScale(28),
-        paddingBottom: verticalScale(28),
+        paddingTop: verticalScale(24),
+        paddingBottom: verticalScale(24),
       }}
       activeOpacity={activeOpacity}>
       <Image
