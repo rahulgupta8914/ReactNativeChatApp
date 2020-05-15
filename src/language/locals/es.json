@@ -5,5 +5,7 @@
   "signIn": "Iniciar sesión",
   "signUp": "Regístrate",
   "confirmPassword": "Confirmar contraseña",
-  "cantLogin": "no puede iniciar sesión?"
+  "cantLogin": "no puede iniciar sesión?",
+  "updateProfilePicture":"Actualizar imagen de perfil",
+  "next": "Siguiente"
 }

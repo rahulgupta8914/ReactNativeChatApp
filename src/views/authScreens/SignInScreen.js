@@ -16,7 +16,7 @@ import {activeOpacity} from '../../constants/Geometry';
 function SignInScreen({navigation: {goBack}}) {
   const {t} = useTranslation();
   const {styles} = useStyles();
-  const {horizentalScale} = useScale();
+  const {horizentalScale,verticalScale} = useScale();
   // navigate
   // const navigate = page => {
   //   props.navigation.navigate(page);
@@ -25,9 +25,7 @@ function SignInScreen({navigation: {goBack}}) {
   return (
     <View style={styles.container}>
       <BackArrowButton onPress={() => goBack()} />
-      <View>
-        <MainLogo width={horizentalScale(211)} />
-      </View>
+      <MainLogo style={{ marginTop: verticalScale(85)}}  />
       <View style={styles.formOuterwrapper}>
         <View style={styles.formControl}>
           <PrimaryTextInput

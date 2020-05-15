@@ -5,5 +5,7 @@
   "signIn": "Sign In",
   "signUp": "Sign Up",
   "confirmPassword": "Confirm Password",
-  "cantLogin":"Can't login?"
+  "cantLogin": "Can't login?",
+  "updateProfilePicture": "Update Profile Picture",
+  "next": "Next"
 }

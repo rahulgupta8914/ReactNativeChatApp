@@ -6,3 +6,4 @@ export const socialIcons = {
 };
 export const welcomeImage = require('../assets/images/welcome1.png');
 export const backArrow = require('../assets/images/Arrow.png'); 
+export const profilePicture = require('../assets/images/profile.png');

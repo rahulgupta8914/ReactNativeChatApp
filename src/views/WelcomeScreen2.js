@@ -18,7 +18,7 @@ export default function WelcomeScreen2(props) {
           justifyContent: 'space-between',
         }}>
         <View style={{flex: 1, alignItems: 'center'}}>
-          <MainLogo width={horizentalScale(211)} />
+          <MainLogo style={{ marginTop: verticalScale(85)}}  />
         </View>
         <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
           <Image

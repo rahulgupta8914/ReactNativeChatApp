@@ -10,6 +10,7 @@ import WelcomeScreen from '../views/WelcomeScreen';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {windowBackground, colorPrimaryDark} from '../constants/Colors';
 import WelcomeScreen2 from '../views/WelcomeScreen2';
+import AddProfilePicture from '../views/authScreens/AddProfilePicture';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,7 @@ function Navigation() {
           <Stack.Screen name="Welcome2" component={WelcomeScreen2} />
           <Stack.Screen name="Sign In" component={SignInScreen} />
           <Stack.Screen name="Sign Up" component={SignUpScreen} />
+          <Stack.Screen name="Add Profile" component={AddProfilePicture} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

@@ -15,7 +15,7 @@ import BackArrowButton from '../../components/BackArrowButton';
 function SignUpScreen(props) {
   const {t} = useTranslation();
   const {styles} = useStyles();
-  const {horizentalScale} = useScale();
+  const {horizentalScale,verticalScale} = useScale();
   // navigate
   const navigate = page => {
     props.navigation.navigate(page);
@@ -23,7 +23,7 @@ function SignUpScreen(props) {
   return (
     <View style={styles.container}>
       <BackArrowButton onPress={() => props.navigation.goBack()} />
-      <MainLogo width={horizentalScale(211)} />
+      <MainLogo style={{ marginTop: verticalScale(85)}}  />
       <View style={styles.formOuterwrapper}>
         <View style={styles.formControl}>
           <PrimaryTextInput
@@ -47,7 +47,10 @@ function SignUpScreen(props) {
             autoCapitalize="none"
           />
         </View>
-        <Button style={styles.buttons} type="primary">
+        <Button
+          style={styles.buttons}
+          onPress={() => navigate('Add Profile')}
+          type="primary">
           {t('signUp')}
         </Button>
         <View style={styles.socialButtons}>
