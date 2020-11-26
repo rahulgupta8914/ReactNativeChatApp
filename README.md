@@ -1,3 +1,8 @@
+![ScreenShot](https://github.com/rahulgupta8914/ReactNativeChatApp/blob/master/screenshots/1.png)
+![ScreenShot](https://github.com/rahulgupta8914/ReactNativeChatApp/blob/master/screenshots/2.png)
+![ScreenShot](https://github.com/rahulgupta8914/ReactNativeChatApp/blob/master/screenshots/3.png)
+![ScreenShot](https://github.com/rahulgupta8914/ReactNativeChatApp/blob/master/screenshots/4.png)
+
 # ReactNativeChatApp
     -> For Windows
         npx react-native run-android
