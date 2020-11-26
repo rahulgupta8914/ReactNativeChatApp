@@ -1,22 +1,26 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text, StyleSheet, ViewPropTypes} from 'react-native';
 import PropTypes from 'prop-types';
-import {colorAccent, secondaryColorAccent} from '../constants/Colors';
+import {
+  colorAccent,
+  secondaryColorAccent,
+  textColorPrimary,
+} from '../constants/Colors';
 import {RobotoRegular} from '../constants/Fonts';
 import useScale from '../hooks/useScale';
+import { primaryFontSize } from '../constants/Geometry';
 
-function PrimaryTextView({children, textTransform, color}) {
-  const {scaleFont} = useScale();
+function PrimaryTextView({children, style, textTransform, color, fontSize}) {
+  const {verticalScale} = useScale();
   return (
     <Text
       style={{
-        fontFamily: RobotoRegular,
-        letterSpacing: 1,
-        fontSize: scaleFont(13),
+        color: color,
+        fontFamily:RobotoRegular,
         fontWeight: 'bold',
-        lineHeight: 20,
-        textTransform,
-        color,
+        textTransform: 'uppercase',
+        fontSize: fontSize ? fontSize : verticalScale(primaryFontSize),
+        ...style
       }}>
       {children}
     </Text>
@@ -25,18 +29,20 @@ function PrimaryTextView({children, textTransform, color}) {
 
 PrimaryTextView.defaultProps = {
   textTransform: 'none',
-  color: colorAccent,
+  color: textColorPrimary,
 };
 
 PrimaryTextView.propTypes = {
   children: PropTypes.string.isRequired,
-  color: PropTypes.oneOf([colorAccent, secondaryColorAccent]),
+  color: PropTypes.string,
+  fontSize: PropTypes.number,
   textTransform: PropTypes.oneOf([
     'capitalize',
     'lowercase',
     'none',
     'uppercase',
   ]),
+  style: ViewPropTypes.style
 };
 
 export default PrimaryTextView;

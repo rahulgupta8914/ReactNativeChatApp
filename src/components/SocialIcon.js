@@ -6,22 +6,23 @@ import useScale from '../hooks/useScale';
 import {forthColorAccent} from '../constants/Colors';
 
 function SocialIcon({source, onPress}) {
-  const {verticalScale} = useScale();
+  const {verticalScale, horizentalScale} = useScale();
   return (
     <TouchableOpacity
       onPress={onPress}
       style={{
-        paddingTop: verticalScale(15),
-        paddingBottom: verticalScale(15),
         paddingLeft: 10,
         paddingRight: 10,
+        paddingTop: verticalScale(24),
+        paddingBottom: verticalScale(24),
       }}
       activeOpacity={activeOpacity}>
       <Image
         source={source}
         style={{
           resizeMode: 'contain',
-          width: verticalScale(45),
+          width: horizentalScale(45),
+          height: verticalScale(39),
         }}
       />
     </TouchableOpacity>

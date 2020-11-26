@@ -1,32 +1,40 @@
-import {centered} from '../../styles/style';
-import {spacingFromMainScreen} from '../../constants/Geometry';
 import useScale from '../../hooks/useScale';
 import {StyleSheet} from 'react-native';
+import { fullWidthCentered } from '../../styles/style';
+import { forthColorAccent } from '../../constants/Colors';
 
 export default function useStyles() {
-  const {verticalScale} = useScale();
+  const {verticalScale,vh} = useScale();
   return {
     styles: StyleSheet.create({
       container: {
         flex: 1,
-        justifyContent: 'space-evenly',
-        paddingLeft: spacingFromMainScreen,
-        paddingRight: spacingFromMainScreen,
+        justifyContent: 'space-between',
+        alignItems:"center",
+      },
+      profilePicture:{
+        borderRadius: 300,
+        borderColor: forthColorAccent,
+        borderWidth: 6,
+        padding: 4,
+        marginBottom: verticalScale(30),
       },
       buttons: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        marginTop: verticalScale(15),
+      },
+      forgotPassStyle:{
+        marginBottom: verticalScale(15)
       },
       socialButtons: {
-        ...centered,
-        flex: 0.4,
+        display: 'flex',
         flexDirection: 'row',
       },
-      formControl: {
-        flex: 1.2,
-        justifyContent: 'space-evenly',
+      formOuterwrapper:{
+        flex: 1,
+        ...fullWidthCentered,
+        justifyContent: 'flex-end',
       },
+      formControl: fullWidthCentered
     }),
   };
 }

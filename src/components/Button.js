@@ -1,65 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PrimaryTextView from './PrimaryTextView';
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {
-  inputTextBorderRadius,
-  primaryHeight,
-  activeOpacity,
-} from '../constants/Geometry';
-import {
-  colorAccent,
-  secondaryColorAccent,
-  windowBackground,
-  forthColorAccent,
-} from '../constants/Colors';
-import {centered} from '../styles/style';
+import {TouchableOpacity, ViewPropTypes} from 'react-native';
+import {secondaryColorAccent} from '../constants/Colors';
 import useScale from '../hooks/useScale';
 
-function Button({children, type, color, style, onPress}) {
+function Button({children, onPress, style}) {
   const {verticalScale} = useScale();
   return (
     <TouchableOpacity
+      activeOpacity={0.7}
       onPress={onPress}
-      activeOpacity={activeOpacity}
       style={{
-        borderRadius: inputTextBorderRadius,
-        height: verticalScale(primaryHeight),
-        ...centered,
-        ...style,
-        flex: 0,
-        width: '45%',
-        elevation: 5,
-        shadowOffset: {
-          width: 1,
-          height: 4,
-        },
-        shadowColor: forthColorAccent,
-        shadowOpacity: 0.48,
-        shadowRadius: 5,
-        backgroundColor: type === 'primary' ? colorAccent : windowBackground,
-        borderColor: type === 'primary' ? 0 : colorAccent,
-        borderWidth: type === 'primary' ? 0 : 3,
+        height: verticalScale(52),
+        backgroundColor: '#1B1B2F',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: verticalScale(5),
+        marginTop: verticalScale(5),
+        borderRadius: 6,
+        width: '95%',
+        ...style
       }}>
-      <PrimaryTextView
-        color={type === 'primary' ? secondaryColorAccent : colorAccent}
-        textTransform="uppercase">
-        {children}
-      </PrimaryTextView>
+      <PrimaryTextView>{children}</PrimaryTextView>
     </TouchableOpacity>
   );
 }
 
 Button.defaultProps = {
   type: 'primary',
-  color: secondaryColorAccent,
+  // color: secondaryColorAccent,
 };
 
 Button.propTypes = {
   type: PropTypes.oneOf(['primary', 'primary-outline']),
   children: PropTypes.string.isRequired,
-  color: PropTypes.oneOf([colorAccent, secondaryColorAccent]),
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
   onPress: PropTypes.func,
 };
 
