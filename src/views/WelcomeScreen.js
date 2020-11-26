@@ -1,20 +1,18 @@
 import React from 'react'
-import { View, useWindowDimensions } from 'react-native'
-import MainLogo from '../components/MainLogo';
+import { View, Image } from 'react-native'
 import { centered } from '../styles/style';
+import { logo } from '../constants/Images';
+import useScale from '../hooks/useScale';
+import MainLogo from '../components/MainLogo';
 
 function WelcomeScreen(props) {
-    const windowHeight = useWindowDimensions().height;
+    const {horizentalScale} = useScale();
     setTimeout(() => {
-        props.navigation.navigate("Sign In");
+        props.navigation.navigate("Welcome2");
     }, 2000);
     return (
         <View style={centered}>
-            <View style={{
-                marginBottom: windowHeight * 0.6
-            }}>
-                <MainLogo width={50} />
-            </View>
+            <MainLogo width={horizentalScale(211)} />
         </View>
     )
 }

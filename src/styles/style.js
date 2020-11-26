@@ -10,6 +10,10 @@ export const centered = {
 
 export const bottomed = {flex: 1, justifyContent: 'flex-end'};
 
+export const fullWidthCentered = {
+  width: '100%',
+  alignItems: 'center',
+}
 // export const primaryFontStyle = {
 //   fontSize: primaryFontSize,
 //   color: colorAccent,

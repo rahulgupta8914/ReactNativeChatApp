@@ -12,9 +12,11 @@ export default function useScale() {
    */
   const verticalScale = size => {
     if (windowHeight < 600) {
-      return (600 / GUIDE_LINE_HEIGHT) * size;
+      return (650 / GUIDE_LINE_HEIGHT) * size;
     } else if (windowHeight < 700) {
-      return (700 / GUIDE_LINE_HEIGHT) * size;
+      return (799 / GUIDE_LINE_HEIGHT) * size;
+    } else if (windowHeight < 750) {
+      return size;
     } else {
       return (windowHeight / GUIDE_LINE_HEIGHT) * size;
     }
@@ -30,13 +32,25 @@ export default function useScale() {
   /**
    * [use it for scaling font]
    * @param  {[Number]} size [description]
-   * @return {[Number]}      [description]
    */
   const scaleFont = size => size * PixelRatio.getFontScale();
+
+  /**
+   * [returns view port height]
+   * @param  {[Number]} size [description]
+   */
+  const vh = size => windowHeight * size/100;
+
+  /**
+   * [returns view port width]
+   * @param  {[Number]} size [description]
+   */
+  const vw = size => windowWidth * size/100;
 
   return {
     verticalScale,
     horizentalScale,
     scaleFont,
+    vh,
   };
 }
