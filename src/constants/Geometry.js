@@ -10,7 +10,7 @@ export const primaryFontSize = 15;
 export const secondaryFontSize = 13;
 
 // TouchableOpacity opacity value on click
-export const activeOpacity = .7
+export const activeOpacity = 0.7;
 
 // view port guideline from figma
 export const GUIDE_LINE_HEIGHT = 800;
